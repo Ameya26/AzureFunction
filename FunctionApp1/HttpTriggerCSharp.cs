@@ -14,6 +14,9 @@ namespace FunctionApp1
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
+            // Updated function to read all query string parameters
+
+            req.GetQueryNameValuePairs();
 
             // parse query parameter
             string name = req.GetQueryNameValuePairs()
